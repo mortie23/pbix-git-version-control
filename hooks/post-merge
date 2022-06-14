@@ -1,0 +1,13 @@
+#!C:/Program\ Files/Git/usr/bin/bash.exe
+
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]:-$0}")" &>/dev/null && pwd 2>/dev/null)"
+echo "${SCRIPT_DIR}"
+
+STAGED_FILE=$(git diff-index --cached --name-only HEAD)
+echo ${STAGED_FILE}
+
+echo -e "\033[38;5;68m"
+echo -e "Creating pbix files..."
+echo -e "\033[0m"
+
+. "${SCRIPT_DIR}\post-pbix-create.sh"
